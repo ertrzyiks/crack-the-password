@@ -15,13 +15,19 @@ function onSubmit(e) {
         return
     }
 
-    dispatch('submit', { value: userInput })
+    dispatch('submit', { value: userInput.toLowerCase() })
     userInput = ''
  }
 </script>
 
 <form on:submit={onSubmit}>
-    <input bind:value={userInput} type="text" maxlength={desiredLength} placeholder={Array.from({length: desiredLength}, () => '*').join('')}/>
+    <input
+        bind:value={userInput}
+        type="text"
+        maxlength={desiredLength}
+        autofocus
+        placeholder={Array.from({length: desiredLength}, () => '*').join('')}
+    />
     <Button type="submit" label="Submit"/>
 </form>
 
