@@ -45,7 +45,7 @@
     <h1>Crack the Password!</h1>
 
     {#if difficulty}
-        <Game word={word} duration={60} on:finish={onFinish} on:giveup={reset} />
+        <Game word={word} duration={60} on:finish={onFinish} />
 
         {#if typeof lastGameStatus !== 'undefined'}
             <div style="margin-top: 2em">

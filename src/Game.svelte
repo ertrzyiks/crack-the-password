@@ -77,6 +77,15 @@
      function isGuessed(index) {
         return matches.includes(index)
      }
+
+     function giveUp() {
+        status = 'giveup'
+        clearInterval(interval)
+
+        dispatch('finish', {
+          success: false
+        })
+     }
 </script>
 
 <div>
@@ -86,7 +95,7 @@
 
     <div class="letters">
         {#each letters as letter, i}
-            <Letter value={letter} uncovered={matches.includes(i)}/>
+            <Letter value={letter} uncovered={status !== 'active' || matches.includes(i)}/>
         {/each}
     </div>
 
@@ -96,7 +105,7 @@
         </div>
 
         <div style="margin-top: 4rem;">
-            <Button secondary onClick={() => dispatch('giveup')} label="Give up" />
+            <Button secondary onClick={giveUp} label="Give up" />
         </div>
     {:else if status === 'win'}
         <div>
@@ -110,7 +119,11 @@
         </div>
     {:else}
         <div style="margin-bottom: 1em;">
-            Time's up!
+            {#if status === 'giveup'}
+                You gave up.
+            {:else}
+                Time's up!
+            {/if}
         </div>
         <div>
             Don't know the word?
