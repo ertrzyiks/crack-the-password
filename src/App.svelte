@@ -42,7 +42,19 @@
 </script>
 
 <main>
-    <h1>Crack the Password!</h1>
+    <h1>
+        Crack the Password!
+          <span style="font-family: initial; letter-spacing: initial; text-shadow: initial;">
+            <a
+                class="github-button"
+                href="https://github.com/ertrzyiks/crack-the-password/fork"
+                data-icon="octicon-repo-forked"
+                aria-label="Fork ertrzyiks/crack-the-password on GitHub"
+            >
+                    Fork
+            </a>
+          </span>
+    </h1>
 
     {#if difficulty}
         <Game word={word} duration={60} on:finish={onFinish} />
