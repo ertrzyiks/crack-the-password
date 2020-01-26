@@ -94,10 +94,19 @@
             </div>
         </div>
     {:else if status === 'win'}
-        <div>You won!</div>
+        <div>
+            You won!
+        </div>
     {:else}
-        <div style="margin-bottom: 1em;">Time's up!</div>
-        <div>Don't know the word? <a href="https://www.dictionary.com/browse/{encodeURIComponent(word)}">Look it up in the dictionary.</a></div>
+        <div style="margin-bottom: 1em;">
+            Time's up!
+        </div>
+        <div>
+            Don't know the word?
+            <a href="https://www.dictionary.com/browse/{encodeURIComponent(word)}" target="_blank">
+                Look it up in the dictionary
+            .</a>
+        </div>
     {/if}
 </div>
 
