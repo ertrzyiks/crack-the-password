@@ -1,20 +1,39 @@
 <script>
     import Game from './Game.svelte';
     import Button from './Button.svelte';
+    import three from '../data/words_alpha_3'
     import four from '../data/words_alpha_4'
+    import five from '../data/words_alpha_5'
+
+    const words = {
+        easy: three,
+        normal: four,
+        hard: five
+    }
 
     let word = getRandomWord(four)
-    let isStarted = false
+    let difficulty = null
     let lastGameStatus
 
+    $: {
+        if (difficulty) {
+            word = getRandomWord(words[difficulty])
+            lastGameStatus = undefined
+        }
+    }
 
     function onFinish(e) {
         lastGameStatus = e.detail.success
     }
 
     function tryAgain() {
-        word = getRandomWord(four)
-        lastGameStatus = undefined
+        const lastDifficulty = difficulty
+        difficulty = null
+        difficulty = lastDifficulty
+    }
+
+    function reset() {
+        difficulty = null
     }
 
     function getRandomWord(list) {
@@ -25,16 +44,20 @@
 <main>
     <h1>Crack the Password!</h1>
 
-    {#if isStarted}
-        <Game word={word} duration={60} on:finish={onFinish} />
+    {#if difficulty}
+        <Game word={word} duration={60} on:finish={onFinish} on:giveup={reset} />
 
         {#if typeof lastGameStatus !== 'undefined'}
             <div style="margin-top: 2em">
                 <Button type="button" onClick={tryAgain} label="Try Again" />
             </div>
+
+            <div style="margin-top: 2em">
+                <Button onClick={reset} label="Change difficulty" />
+            </div>
         {/if}
     {:else}
-        <div style="max-width: 18em; margin: 0 auto;">
+        <div class="intro" style="">
             <p>
                 You have 60 seconds and unlimited attempts to guess the password.
             </p>
@@ -48,8 +71,20 @@
             </p>
         </div>
 
-        <div style="margin-top: 2em">
-            <Button type="button" onClick={() => isStarted = true} label="Start" />
+        <p>
+          Difficulty:
+        </p>
+
+        <div style="margin-top: 1em">
+            <Button type="button" onClick={() => difficulty = 'easy'} label="Easy" />
+        </div>
+
+        <div style="margin-top: 1em">
+            <Button type="button" onClick={() => difficulty = 'normal'} label="Normal" />
+        </div>
+
+        <div style="margin-top: 1em">
+            <Button type="button" onClick={() => difficulty = 'hard'} label="Hard" />
         </div>
     {/if}
 
@@ -67,6 +102,16 @@
 	  color: #fefefe;
 	  text-shadow: 3px 3px 0 #311443;
 	  font-size: 2rem;
+	}
+
+	.intro {
+      max-width: 18em;
+      margin: 3em auto;
+    }
+
+    p {
+	  text-shadow: 2px 2px 0 #333;
+	  margin-bottom: 1em;
 	}
 
 	@media (min-width: 640px) {

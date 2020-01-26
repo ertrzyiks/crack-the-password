@@ -12,7 +12,7 @@ export let total
       max-width: 20rem;
       margin: 0 auto;
       height: 10px;
-      background-color: #fefefe;
+      background-color: #b6a4c1;
       width: 100%;
       box-shadow: 3px 3px 0 #333;
     }

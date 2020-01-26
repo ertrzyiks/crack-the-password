@@ -1,10 +1,11 @@
 <script>
 export let label
-export let type
+export let type = 'button'
 export let onClick = () => {}
+export let secondary = false
 </script>
 
-<button type={type} on:click={onClick}>{label}</button>
+<button type={type} class={secondary && 'isSecondary'} on:click={onClick}>{label}</button>
 
 <style>
 button {
@@ -27,5 +28,13 @@ button:hover {
 button:active {
 	position: relative;
 	top: 1px;
+}
+
+button.isSecondary {
+    background-color: #c34343;
+}
+
+button.isSecondary:hover {
+    box-shadow: 3px 3px 0 #333, inset 0px 34px 0px -15px #a93030;
 }
 </style>
