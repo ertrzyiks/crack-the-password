@@ -47,7 +47,7 @@
           <span style="font-family: initial; letter-spacing: initial; text-shadow: initial;">
             <a
                 class="github-button"
-                href="https://github.com/ertrzyiks/crack-the-password/fork"
+                href="https://github.com/ertrzyiks/crack-the-password"
                 data-icon="octicon-repo-forked"
                 aria-label="Fork ertrzyiks/crack-the-password on GitHub"
             >
