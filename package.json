@@ -1,5 +1,5 @@
 {
-  "name": "guess-the-word",
+  "name": "crack-the-password",
   "version": "1.0.0",
   "scripts": {
     "build": "rollup -c",
