@@ -21,7 +21,7 @@ function onSubmit(e) {
 </script>
 
 <form on:submit={onSubmit}>
-    <input bind:value={userInput} type="text" maxlength={desiredLength}/>
+    <input bind:value={userInput} type="text" maxlength={desiredLength} placeholder={Array.from({length: desiredLength}, () => '*').join('')}/>
     <Button type="submit" label="Submit"/>
 </form>
 

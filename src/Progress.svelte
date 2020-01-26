@@ -9,9 +9,12 @@ export let total
 
 <style>
     .wrapper {
+      max-width: 20rem;
+      margin: 0 auto;
       height: 10px;
       background-color: #fefefe;
       width: 100%;
+      box-shadow: 3px 3px 0 #333;
     }
     .bar {
       height: 10px;

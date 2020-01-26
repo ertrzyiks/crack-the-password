@@ -21,6 +21,9 @@
     height: 1.6em;
     display: inline-block;
     box-shadow: 4px 4px 0 #311443;
+
+  }
+  div:not(:last-child) {
     margin-right: 1em;
   }
 
