@@ -50,6 +50,7 @@
                 href="https://github.com/ertrzyiks/crack-the-password"
                 data-icon="octicon-repo-forked"
                 aria-label="Fork ertrzyiks/crack-the-password on GitHub"
+                style="visibility: hidden"
             >
                     Fork
             </a>
