@@ -8,6 +8,7 @@
     import { onInterval } from './utils'
 
 	export let word;
+	export let dictionary;
 	export let duration;
 
     const dispatch = createEventDispatcher();
@@ -101,7 +102,7 @@
 
     {#if status === 'active'}
         <div style="margin-top: 0em;">
-            <Form desiredLength={word.length} on:submit={onSubmit} />
+            <Form dictionary={dictionary} desiredLength={word.length} on:submit={onSubmit} />
         </div>
 
         <div style="margin-top: 4rem;">

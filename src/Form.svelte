@@ -3,8 +3,10 @@ import { createEventDispatcher } from 'svelte'
 import Button from './Button.svelte'
 
 export let desiredLength;
+export let dictionary;
 
 let userInput = ''
+let error = null
 
 const dispatch = createEventDispatcher();
 
@@ -15,20 +17,30 @@ function onSubmit(e) {
         return
     }
 
-    dispatch('submit', { value: userInput.toLowerCase() })
-    userInput = ''
+    const value = userInput.toLowerCase()
+    if (dictionary.hasWord(value)) {
+        dispatch('submit', { value })
+        userInput = ''
+        error = null
+    } else {
+        error = 'Provide a valid English word.'
+    }
  }
 </script>
 
 <form on:submit={onSubmit}>
-    <input
-        bind:value={userInput}
-        type="text"
-        maxlength={desiredLength}
-        autofocus
-        placeholder={Array.from({length: desiredLength}, () => '*').join('')}
-    />
-    <Button type="submit" label="Submit"/>
+    <div>
+        <input
+            bind:value={userInput}
+            type="text"
+            maxlength={desiredLength}
+            autofocus
+            placeholder={Array.from({length: desiredLength}, () => '*').join('')}
+        />
+        <Button type="submit" label="Submit"/>
+    </div>
+
+    <div>{error || ''}</div>
 </form>
 
 <style>

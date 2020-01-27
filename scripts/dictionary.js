@@ -48,3 +48,18 @@ generateDictionary({
     length: 5
   }],
 })
+
+generateDictionary({
+  sourceFileName: path.resolve('../english-words/words_alpha.txt'),
+  destinations: [{
+    fileName: path.resolve('./data/all_words_alpha_3.js'),
+    length: 3
+  }, {
+    fileName: path.resolve('./data/all_words_alpha_4.js'),
+    length: 4
+  }, {
+    fileName: path.resolve('./data/all_words_alpha_5.js'),
+    length: 5
+  }],
+})
+

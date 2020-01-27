@@ -1,4 +1,5 @@
 <script>
+    import allWords from './allWords'
     import Game from './Game.svelte';
     import Button from './Button.svelte';
     import three from '../data/words_alpha_3'
@@ -11,13 +12,15 @@
         hard: five
     }
 
-    let word = getRandomWord(four)
+    let word
+    let dictionary
     let difficulty = null
     let lastGameStatus
 
     $: {
         if (difficulty) {
             word = getRandomWord(words[difficulty])
+            dictionary = allWords[difficulty]
             lastGameStatus = undefined
         }
     }
@@ -58,7 +61,7 @@
     </h1>
 
     {#if difficulty}
-        <Game word={word} duration={60} on:finish={onFinish} />
+        <Game word={word} dictionary={dictionary} duration={60} on:finish={onFinish} />
 
         {#if typeof lastGameStatus !== 'undefined'}
             <div style="margin-top: 2em">

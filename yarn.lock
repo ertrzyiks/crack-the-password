@@ -1377,6 +1377,11 @@ to-regex@^3.0.1, to-regex@^3.0.2:
     regex-not "^1.0.2"
     safe-regex "^1.1.0"
 
+trie-prefix-tree@^1.5.1:
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/trie-prefix-tree/-/trie-prefix-tree-1.5.1.tgz#209c91f0e66cde53af2c5de8aceeca5558cdf03d"
+  integrity sha512-Jjvj/dA97wXnabG/NLJUgo4IQMj6vucH+Qxm7of/omfWSmZlPqdRU6Ta4GmQqCZH+n3/iYZUwfvUoEhB0Hs83Q==
+
 trim-repeated@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/trim-repeated/-/trim-repeated-1.0.0.tgz#e3646a2ea4e891312bf7eace6cfb05380bc01c21"
