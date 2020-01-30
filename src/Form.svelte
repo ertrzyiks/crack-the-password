@@ -37,7 +37,7 @@ function onSubmit(e) {
             autofocus
             placeholder={Array.from({length: desiredLength}, () => '*').join('')}
         />
-        <Button type="submit" label="Submit"/>
+        <Button type="submit">Submit</Button>
     </div>
 
     <div>{error || ''}</div>

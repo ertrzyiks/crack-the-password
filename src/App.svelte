@@ -65,11 +65,11 @@
 
         {#if typeof lastGameStatus !== 'undefined'}
             <div style="margin-top: 2em">
-                <Button type="button" onClick={tryAgain} label="Try Again" />
+                <Button type="button" onClick={tryAgain}>Try Again</Button>
             </div>
 
             <div style="margin-top: 2em">
-                <Button onClick={reset} label="Change difficulty" />
+                <Button onClick={reset}>Change difficulty</Button>
             </div>
         {/if}
     {:else}
@@ -92,15 +92,15 @@
         </p>
 
         <div style="margin-top: 1em">
-            <Button type="button" onClick={() => difficulty = 'easy'} label="Easy" />
+            <Button type="button" onClick={() => difficulty = 'easy'}>Easy</Button>
         </div>
 
         <div style="margin-top: 1em">
-            <Button type="button" onClick={() => difficulty = 'normal'} label="Normal" />
+            <Button type="button" onClick={() => difficulty = 'normal'}>Normal</Button>
         </div>
 
         <div style="margin-top: 1em">
-            <Button type="button" onClick={() => difficulty = 'hard'} label="Hard" />
+            <Button type="button" onClick={() => difficulty = 'hard'}>Hard</Button>
         </div>
     {/if}
 

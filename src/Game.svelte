@@ -106,7 +106,7 @@
         </div>
 
         <div style="margin-top: 4rem;">
-            <Button secondary onClick={giveUp} label="Give up" />
+            <Button secondary onClick={giveUp}>Give up</Button>
         </div>
     {:else if status === 'win'}
         <div>

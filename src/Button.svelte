@@ -1,11 +1,12 @@
 <script>
-export let label
 export let type = 'button'
 export let onClick = () => {}
 export let secondary = false
 </script>
 
-<button type={type} class={secondary && 'isSecondary'} on:click={onClick}>{label}</button>
+<button type={type} class={secondary && 'isSecondary'} on:click={onClick}>
+  <slot />
+</button>
 
 <style>
 button {
